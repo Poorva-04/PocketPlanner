@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transactions | 💼PocketPlanner</title>
+    <link rel="stylesheet" href="css/transaction.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>💼PocketPlanner</h1>
+      <nav>
+        <a class="nav-link-active" href="dashboard.html">Dashboard</a>
+        <a class="active" href="transaction.html">Transactions</a>
+      </nav>
+      <button id="logoutBtn">Logout</button>
+    </header>
+
+    <main>
+      <section class="chart-section">
+        <h2>Income vs Expense</h2>
+        <canvas id="transactionChart"></canvas>
+      </section>
+
+      <section class="transactions-section">
+        <div class="section-header">
+          <h2>Transactions</h2>
+          <button id="openModalBtn">Add Transaction</button>
+        </div>
+        <ul id="transactionList"></ul>
+      </section>
+    </main>
+
+    <!-- Modal for Add/Edit -->
+    <div id="modal" class="hidden modal">
+      <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <h3 id="modalTitle">Add/Edit Transaction</h3>
+        <form id="transactionForm">
+          <input type="text" id="title" placeholder="Title" required />
+          <input type="number" id="amount" placeholder="Amount" required />
+          <select id="type">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+          <input type="text" id="category" placeholder="Category" required />
+          <input type="date" id="date" required />
+          <textarea
+            id="description"
+            placeholder="Description (optional)"
+          ></textarea>
+          <button type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/transaction.js"></script>
+  </body>
+</html>

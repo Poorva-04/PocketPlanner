@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💼PocketPlanner Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body>
+    <header>
+      <h1>💼PocketPlanner</h1>
+      <nav class="main-nav">
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+        <a href="transaction.html" class="nav-link">Transactions</a>
+      </nav>
+      <button id="logoutBtn">Logout</button>
+    </header>
+
+    <main>
+      <section id="summary">
+        <h2>Summary</h2>
+        <div class="summary-cards">
+          <div class="card income">Income: ₹<span id="income">0</span></div>
+          <div class="card expense">Expense: ₹<span id="expense">0</span></div>
+          <div class="card balance">Balance: ₹<span id="balance">0</span></div>
+        </div>
+      </section>
+
+      <section id="chartSection">
+        <div id="pieChartContainer">
+          <canvas id="summaryChart"></canvas>
+        </div>
+      </section>
+
+      <section id="transactions">
+        <h2>Recent Transactions</h2>
+        <ul id="transactionList"></ul>
+        <button id="openModalBtn">Add New Transaction</button>
+      </section>
+    </main>
+
+    <!-- Add Transaction Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <h3>Add Transaction</h3>
+        <form id="transactionForm">
+          <input type="text" id="title" placeholder="Title" required />
+          <input type="number" id="amount" placeholder="Amount (₹)" required />
+          <select id="type" required>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+          <input type="text" id="category" placeholder="Category" required />
+          <textarea
+            id="description"
+            placeholder="Description (optional)"
+          ></textarea>
+          <input type="date" id="date" required />
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
